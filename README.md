@@ -42,6 +42,20 @@
 
 </div>
 
+## 🐳 Docker Quick Start (Run Anywhere)
+
+Run VibeVoice easily on any PC with zero manual dependency or python environment configuration:
+
+```bash
+git clone https://github.com/Juandeldesierto/VibeVoice-Docker.git
+cd VibeVoice-Docker
+```
+
+- **Windows**: Double-click `run_docker.bat` (or run `docker compose up -d`)
+- **Linux / macOS**: Run `./run_docker.sh` (or `docker compose up -d`)
+
+Once started, open **`http://localhost:3001`** in your browser to access the Web UI!
+
 ## Overview
 
 VibeVoice is a **family of open-source frontier voice AI models** that includes both Text-to-Speech (TTS) and Automatic Speech Recognition (ASR) models. 
