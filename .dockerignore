@@ -1,0 +1,14 @@
+.git
+.gitignore
+.gradio
+outputs
+__pycache__
+*.pyc
+*.pyo
+*.pyd
+.pytest_cache
+*.egg-info
+cuda_test.txt
+simple_test.txt
+test_*.txt
+notes.txt

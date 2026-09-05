@@ -1,0 +1,30 @@
+services:
+  vibevoice:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    image: vibevoice:latest
+    container_name: vibevoice_service
+    restart: unless-stopped
+    ports:
+      - "3001:3000"
+    environment:
+      - MODEL_PATH=microsoft/VibeVoice-Realtime-0.5B
+      - MODEL_DEVICE=cuda
+      - VOICE_PRESET=en-Carter_man
+    dns:
+      - 8.8.8.8
+      - 1.1.1.1
+    volumes:
+      - hf_cache:/root/.cache/huggingface
+      - ./outputs:/app/outputs
+    deploy:
+      resources:
+        reservations:
+          devices:
+            - driver: nvidia
+              count: all
+              capabilities: [gpu]
+
+volumes:
+  hf_cache:
