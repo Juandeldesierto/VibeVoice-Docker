@@ -176,3 +176,11 @@ tags
 exp
 .gradio/
 experimental_voices
+test_*.txt
+simple_test.txt
+cuda_test.txt
+notes.txt
+demo/voices/custom/
+inputs/portrait_*
+
+

@@ -9,14 +9,18 @@ services:
     ports:
       - "3001:3000"
     environment:
-      - MODEL_PATH=microsoft/VibeVoice-Realtime-0.5B
+      - MODEL_PATH=${MODEL_PATH:-aoi-ot/VibeVoice-Large}
       - MODEL_DEVICE=cuda
-      - VOICE_PRESET=en-Carter_man
+      - VOICE_PRESET=${VOICE_PRESET:-stallone1}
     dns:
       - 8.8.8.8
       - 1.1.1.1
     volumes:
-      - hf_cache:/root/.cache/huggingface
+      - ${HF_CACHE_DIR:-D:/huggingface_cache}:/root/.cache/huggingface
+      - ./demo/voices:/app/demo/voices
+      - ./demo/web:/app/demo/web
+      - ./vibevoice:/app/vibevoice
+      - ./inputs:/app/inputs
       - ./outputs:/app/outputs
     deploy:
       resources:
@@ -26,5 +30,23 @@ services:
               count: all
               capabilities: [gpu]
 
-volumes:
-  hf_cache:
+  sadtalker:
+    image: wawa9000/sadtalker
+    container_name: sadtalker_service
+    restart: unless-stopped
+    entrypoint: ["python", "-u", "/host_dir/scripts/sadtalker_worker.py"]
+    dns:
+      - 8.8.8.8
+      - 1.1.1.1
+    volumes:
+      - ./inputs:/host_dir/inputs
+      - ./outputs:/host_dir/outputs
+      - ./scripts:/host_dir/scripts
+    deploy:
+      resources:
+        reservations:
+          devices:
+            - driver: nvidia
+              count: all
+              capabilities: [gpu]
+

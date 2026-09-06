@@ -196,6 +196,62 @@ https://github.com/user-attachments/assets/0901d274-f6ae-46ef-a0fd-3c4fba4f76dc
 
 <br>
 
+## 🐳 Docker & Talking-Head Avatar Pipeline (VibeVoice + SadTalker)
+
+You can run VibeVoice and generate talking-head videos without manually installing Python, PyTorch, CUDA Toolkit, FFmpeg, or model dependencies on your host machine. All that is required is the **NVIDIA GPU driver** and **Docker Desktop with WSL2 GPU support**.
+
+### Pipeline Overview
+```
+Text Prompt + Portrait Image (inputs/portrait.png)
+                       │
+                       ▼
+         ┌───────────────────────────┐
+         │     VibeVoice (Docker)    │ ──► outputs/speech.wav
+         └─────────────┬─────────────┘
+                       │
+                       ▼
+         ┌───────────────────────────┐
+         │     SadTalker (Docker)    │ ──► outputs/avatar.mp4
+         └───────────────────────────┘
+```
+
+### 1. Interactive Web UI (Recommended)
+Launch the studio with a single command:
+
+- **Windows:** Double-click `run_docker.bat`
+- **Docker Compose:**
+  ```bash
+  docker compose up --build -d
+  ```
+
+Open your browser at **`http://localhost:3001`**:
+- 🎬 **Talking Avatar Studio**:
+  - Drag-and-drop or select preset portrait photos (`Businessman`, `Businesswoman`, etc.).
+  - Type any script or use quick prompt chips.
+  - Choose speaker voices and toggle GFPGAN HD face enhancement / Still Mode.
+  - Watch live progress and play / download the generated talking MP4 video directly in the browser!
+- 🎙️ **Real-time Voice TTS**:
+  - Live streaming text-to-speech audio with low latency.
+
+### 2. Command-Line Avatar Generation (Batch Mode)
+You can also generate talking-head videos directly from the terminal without opening a browser:
+
+- **Windows:**
+  ```cmd
+  run_avatar.bat "Hello! Welcome to our presentation." inputs\portrait.png
+  ```
+- **Linux / WSL2:**
+  ```bash
+  chmod +x run_avatar.sh
+  ./run_avatar.sh "Hello! Welcome to our presentation." inputs/portrait.png
+  ```
+
+Outputs will be saved in `outputs/`:
+- `outputs/speech.wav` (synthesized voice)
+- `outputs/*.mp4` (animated talking-head video)
+
+<br>
+
 ## Contributing
 
 Please see [CONTRIBUTING.md](CONTRIBUTING.md) for detailed contribution guidelines.

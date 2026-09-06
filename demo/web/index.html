@@ -34,7 +34,7 @@
   }
 
   .app-shell {
-    width: min(960px, 100%);
+    width: min(1180px, 98%);
     background: var(--surface);
     border-radius: 20px;
     padding: 36px 40px 44px;
@@ -315,70 +315,1007 @@
       text-align: center;
     }
   }
+
+  /* Header & Tabs */
+  .app-header {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 14px;
+    border-bottom: 1px solid rgba(85, 98, 255, 0.12);
+    padding-bottom: 22px;
+  }
+  .brand-row {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+  .version-badge {
+    background: linear-gradient(135deg, #6366f1 0%, #8b5cf6 100%);
+    color: #fff;
+    font-size: 11px;
+    font-weight: 700;
+    padding: 4px 10px;
+    border-radius: 999px;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+  }
+  .tab-nav {
+    display: flex;
+    background: #eef2ff;
+    padding: 5px;
+    border-radius: 999px;
+    gap: 6px;
+    border: 1px solid rgba(85, 98, 255, 0.15);
+  }
+  .tab-btn {
+    border: none;
+    background: transparent;
+    padding: 9px 22px;
+    border-radius: 999px;
+    font-family: inherit;
+    font-size: 14px;
+    font-weight: 600;
+    color: var(--text-muted);
+    cursor: pointer;
+    transition: all 0.2s ease;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+  .tab-btn:hover {
+    color: var(--text-primary);
+  }
+  .tab-btn.active {
+    background: #ffffff;
+    color: var(--accent);
+    box-shadow: 0 4px 12px rgba(85, 98, 255, 0.18);
+  }
+  .tab-pane {
+    display: none;
+    flex-direction: column;
+    gap: 24px;
+  }
+  .tab-pane.active {
+    display: flex;
+  }
+
+  /* Talking Avatar Studio Layout */
+  .studio-grid {
+    display: grid;
+    grid-template-columns: 1.15fr 0.85fr;
+    gap: 28px;
+    align-items: start;
+  }
+  @media (max-width: 960px) {
+    .studio-grid {
+      grid-template-columns: 1fr;
+    }
+  }
+  .studio-col {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+  }
+  .studio-card {
+    background: #fafbff;
+    border: 1px solid var(--border);
+    border-radius: 16px;
+    padding: 22px 24px;
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    box-shadow: 0 4px 16px rgba(31, 39, 66, 0.03);
+  }
+  .card-header {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+  .card-header h3 {
+    margin: 0;
+    font-size: 16px;
+    font-weight: 700;
+    color: var(--text-primary);
+  }
+  .step-badge {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 26px;
+    height: 26px;
+    border-radius: 50%;
+    background: var(--accent);
+    color: #fff;
+    font-size: 13px;
+    font-weight: 700;
+  }
+  .preset-section {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+  }
+  .section-sublabel {
+    font-size: 13px;
+    color: var(--text-muted);
+    font-weight: 500;
+  }
+  .preset-grid {
+    display: flex;
+    gap: 10px;
+    flex-wrap: wrap;
+  }
+  .preset-card {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    background: #fff;
+    border: 1.5px solid rgba(85, 98, 255, 0.2);
+    border-radius: 10px;
+    padding: 6px 12px 6px 6px;
+    cursor: pointer;
+    transition: all 0.2s;
+    font-size: 13px;
+    font-weight: 600;
+  }
+  .preset-card:hover {
+    border-color: var(--accent);
+    transform: translateY(-1px);
+    box-shadow: 0 4px 10px rgba(85, 98, 255, 0.12);
+  }
+  .preset-card.selected {
+    border-color: var(--accent-strong);
+    background: #eef2ff;
+    box-shadow: 0 0 0 2px rgba(85, 98, 255, 0.25);
+  }
+  .preset-card img {
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    object-fit: cover;
+  }
+  .dropzone {
+    border: 2px dashed rgba(85, 98, 255, 0.35);
+    border-radius: 12px;
+    background: #fff;
+    padding: 18px;
+    text-align: center;
+    cursor: pointer;
+    transition: all 0.2s;
+    position: relative;
+    overflow: hidden;
+  }
+  .dropzone:hover, .dropzone.dragover {
+    border-color: var(--accent);
+    background: #f4f6ff;
+  }
+  .dropzone-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 6px;
+  }
+  .dropzone-icon {
+    font-size: 28px;
+  }
+  .selected-preview {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 14px;
+    background: #fff;
+  }
+  .selected-preview img {
+    width: 68px;
+    height: 68px;
+    border-radius: 10px;
+    object-fit: cover;
+    border: 1px solid var(--border);
+  }
+  .preview-info {
+    flex: 1;
+    text-align: left;
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+  }
+  .preview-filename {
+    font-size: 14px;
+    font-weight: 600;
+    color: var(--text-primary);
+  }
+  .btn-sm {
+    background: #eef2ff;
+    color: var(--accent-strong);
+    border: 1px solid rgba(85, 98, 255, 0.2);
+    border-radius: 6px;
+    padding: 6px 12px;
+    font-size: 12px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.15s;
+  }
+  .btn-sm:hover {
+    background: #e0e6ff;
+  }
+  .field-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 6px;
+  }
+  .char-count {
+    font-size: 12px;
+    color: var(--text-muted);
+  }
+  .studio-textarea {
+    min-height: 100px;
+  }
+  .voice-mode-switcher {
+    display: flex;
+    background: #eef2ff;
+    padding: 4px;
+    border-radius: 10px;
+    gap: 4px;
+    border: 1px solid rgba(85, 98, 255, 0.15);
+  }
+  .voice-mode-btn {
+    flex: 1;
+    border: none;
+    background: transparent;
+    padding: 8px 12px;
+    border-radius: 8px;
+    font-family: inherit;
+    font-size: 13px;
+    font-weight: 600;
+    color: var(--text-muted);
+    cursor: pointer;
+    transition: all 0.2s ease;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 6px;
+  }
+  .voice-mode-btn:hover {
+    color: var(--text-primary);
+  }
+  .voice-mode-btn.active {
+    background: #ffffff;
+    color: var(--accent);
+    box-shadow: 0 2px 8px rgba(85, 98, 255, 0.15);
+  }
+  .voice-pane {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+  }
+  .audio-dropzone {
+    padding: 16px;
+  }
+  .audio-file-badge {
+    font-size: 28px;
+  }
+  .audio-preview-box {
+    width: 100%;
+  }
+  .voice-guide-box {
+    display: flex;
+    gap: 12px;
+    background: #f0f4ff;
+    border: 1px solid rgba(85, 98, 255, 0.2);
+    border-radius: 12px;
+    padding: 12px 14px;
+    margin-top: 8px;
+    align-items: flex-start;
+  }
+  .voice-guide-icon {
+    font-size: 20px;
+    flex-shrink: 0;
+  }
+  .voice-guide-text {
+    font-size: 12px;
+    color: var(--text-primary);
+    line-height: 1.5;
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+    text-align: left;
+  }
+  .voice-guide-text strong {
+    color: var(--accent-strong);
+    font-size: 13px;
+  }
+  .prompt-chips {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    flex-wrap: wrap;
+    margin-top: 6px;
+  }
+  .chips-label {
+    font-size: 12px;
+    font-weight: 600;
+    color: var(--text-muted);
+  }
+  .chip-btn {
+    border: 1px solid rgba(85, 98, 255, 0.18);
+    background: #ffffff;
+    padding: 4px 10px;
+    border-radius: 999px;
+    font-size: 12px;
+    font-weight: 500;
+    color: var(--text-primary);
+    cursor: pointer;
+    transition: all 0.15s;
+  }
+  .chip-btn:hover {
+    background: #eef2ff;
+    border-color: var(--accent);
+  }
+  .options-grid {
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+  }
+  .toggle-control {
+    display: flex;
+    align-items: flex-start;
+    gap: 12px;
+    cursor: pointer;
+    user-select: none;
+  }
+  .toggle-control input {
+    display: none;
+  }
+  .toggle-slider {
+    position: relative;
+    width: 44px;
+    height: 24px;
+    background: #d8deeb;
+    border-radius: 999px;
+    transition: 0.25s;
+    flex-shrink: 0;
+    margin-top: 2px;
+  }
+  .toggle-slider::before {
+    content: "";
+    position: absolute;
+    width: 18px;
+    height: 18px;
+    border-radius: 50%;
+    background: #fff;
+    top: 3px;
+    left: 3px;
+    transition: 0.25s;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.15);
+  }
+  .toggle-control input:checked + .toggle-slider {
+    background: var(--accent);
+  }
+  .toggle-control input:checked + .toggle-slider::before {
+    transform: translateX(20px);
+  }
+  .toggle-label {
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+  }
+  .toggle-label strong {
+    font-size: 14px;
+    color: var(--text-primary);
+  }
+  .toggle-label small {
+    font-size: 12px;
+    color: var(--text-muted);
+  }
+  .slider-field {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+  }
+  .slider-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  .slider-val {
+    font-weight: 700;
+    color: var(--accent);
+    font-size: 14px;
+  }
+  .slider-field input[type="range"] {
+    accent-color: var(--accent);
+  }
+  .generate-btn {
+    width: 100%;
+    background: linear-gradient(135deg, #5562ff 0%, #8b5cf6 100%);
+    color: #fff;
+    border: none;
+    border-radius: 12px;
+    padding: 16px 24px;
+    font-size: 16px;
+    font-weight: 700;
+    cursor: pointer;
+    box-shadow: 0 10px 24px rgba(85, 98, 255, 0.3);
+    transition: all 0.2s;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    margin-top: 4px;
+  }
+  .generate-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 14px 28px rgba(85, 98, 255, 0.35);
+  }
+  .generate-btn:active {
+    transform: translateY(0);
+  }
+  .generate-btn:disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+    transform: none;
+  }
+
+  /* Result Card Styles */
+  .result-card {
+    background: #fff;
+    border: 1px solid var(--border);
+    border-radius: 16px;
+    padding: 28px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    box-shadow: 0 8px 30px rgba(31, 39, 66, 0.04);
+    min-height: 480px;
+    justify-content: center;
+  }
+  .idle-illustration {
+    font-size: 54px;
+    margin-bottom: 12px;
+    animation: floatAnim 3s ease-in-out infinite;
+  }
+  @keyframes floatAnim {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-6px); }
+  }
+  .idle-state h3 {
+    margin: 0 0 8px;
+    font-size: 20px;
+  }
+  .idle-state p {
+    margin: 0 0 20px;
+    color: var(--text-muted);
+    font-size: 14px;
+    line-height: 1.5;
+  }
+  .feature-bullets {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    text-align: left;
+    width: 100%;
+    background: #f9faff;
+    border-radius: 12px;
+    padding: 16px;
+  }
+  .feature-item {
+    font-size: 13px;
+    color: var(--text-primary);
+  }
+  .spinner-ring {
+    width: 56px;
+    height: 56px;
+    border: 4px solid #e0e7ff;
+    border-top-color: var(--accent);
+    border-radius: 50%;
+    animation: spin 1s linear infinite;
+    margin-bottom: 18px;
+  }
+  @keyframes spin {
+    to { transform: rotate(360deg); }
+  }
+  .progress-bar-wrap {
+    width: 100%;
+    height: 10px;
+    background: #edf1ff;
+    border-radius: 999px;
+    overflow: hidden;
+    margin: 16px 0 8px;
+  }
+  .progress-bar-fill {
+    height: 100%;
+    background: linear-gradient(90deg, #5562ff 0%, #a855f7 100%);
+    border-radius: 999px;
+    transition: width 0.4s ease;
+  }
+  .progress-percent {
+    font-size: 13px;
+    font-weight: 700;
+    color: var(--accent-strong);
+  }
+  .pipeline-stepper {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    margin-top: 24px;
+    width: 100%;
+    justify-content: center;
+  }
+  .step-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 4px;
+    font-size: 11px;
+    color: var(--text-muted);
+    font-weight: 600;
+  }
+  .step-item.active {
+    color: var(--accent);
+  }
+  .step-item.done {
+    color: #10b981;
+  }
+  .step-connector {
+    flex: 1;
+    height: 2px;
+    background: #e2e8f0;
+    max-width: 32px;
+  }
+  .result-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+    margin-bottom: 14px;
+  }
+  .badge-success {
+    background: #ecfdf5;
+    color: #059669;
+    border: 1px solid rgba(5, 150, 105, 0.2);
+    padding: 4px 10px;
+    border-radius: 999px;
+    font-size: 12px;
+    font-weight: 700;
+  }
+  .video-container {
+    width: 100%;
+    border-radius: 12px;
+    overflow: hidden;
+    background: #000;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
+    margin-bottom: 16px;
+  }
+  .video-container video {
+    width: 100%;
+    max-height: 380px;
+    display: block;
+    object-fit: contain;
+  }
+  .audio-preview-row {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    width: 100%;
+    margin-bottom: 18px;
+    background: #f8fafc;
+    padding: 10px 14px;
+    border-radius: 10px;
+  }
+  .audio-label {
+    font-size: 12px;
+    font-weight: 600;
+    color: var(--text-muted);
+    white-space: nowrap;
+  }
+  .audio-preview-row audio {
+    flex: 1;
+    height: 34px;
+  }
+  .result-actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    width: 100%;
+    justify-content: center;
+  }
+  .btn-download {
+    flex: 1;
+    background: var(--accent);
+    color: #fff;
+    padding: 12px 18px;
+    border-radius: 10px;
+    text-decoration: none;
+    font-size: 14px;
+    font-weight: 600;
+    transition: all 0.2s;
+    text-align: center;
+  }
+  .btn-download:hover {
+    background: var(--accent-strong);
+    transform: translateY(-1px);
+  }
+  .btn-download-secondary {
+    background: #f1f5f9;
+    color: var(--text-primary);
+    padding: 12px 16px;
+    border-radius: 10px;
+    text-decoration: none;
+    font-size: 14px;
+    font-weight: 600;
+    transition: all 0.2s;
+  }
+  .btn-download-secondary:hover {
+    background: #e2e8f0;
+  }
+  .btn-text {
+    border: none;
+    background: transparent;
+    color: var(--accent);
+    font-weight: 600;
+    cursor: pointer;
+    padding: 10px 14px;
+    font-size: 13px;
+  }
+  .btn-text:hover {
+    text-decoration: underline;
+  }
+  .error-icon {
+    font-size: 48px;
+    margin-bottom: 10px;
+  }
+  .error-text {
+    color: #ef4444;
+    font-size: 14px;
+    margin-bottom: 16px;
+    max-width: 90%;
+    word-break: break-word;
+  }
+  .btn-retry {
+    background: #ef4444;
+    color: #fff;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 8px;
+    font-weight: 600;
+    cursor: pointer;
+  }
 </style>
 <body>
   <div class="app-shell">
-    <h1>VibeVoice-Realtime TTS Demo</h1>
+    <header class="app-header">
+      <div class="brand-row">
+        <h1>VibeVoice + SadTalker AI Studio</h1>
+        <span class="version-badge">Docker GPU Edition</span>
+      </div>
+      <nav class="tab-nav">
+        <button type="button" class="tab-btn active" data-tab="avatarStudioTab">🎬 Talking Avatar Studio</button>
+        <button type="button" class="tab-btn" data-tab="streamingTtsTab">🎙️ Real-time Voice TTS</button>
+      </nav>
+    </header>
 
-    <section class="panel">
-      <label class="field">
-        <span class="field-label">Text</span>
-        <textarea
-          id="prompt"
-          class="text-input"
-          rows="4"
-        >Enter your text here and click "Start" to instantly hear the VibeVoice-Realtime TTS output audio.</textarea>
-      </label>
+    <!-- Tab 1: Talking Avatar Studio -->
+    <div id="avatarStudioTab" class="tab-pane active">
+      <div class="studio-grid">
+        <!-- Left Column: Setup & Inputs -->
+        <div class="studio-col">
+          <!-- Card 1: Portrait Image -->
+          <div class="studio-card">
+            <div class="card-header">
+              <span class="step-badge">1</span>
+              <h3>Portrait Image</h3>
+            </div>
 
-      <div id="streamingPreviewContainer">
-        <div id="streamingPreviewHeader">
-          <span>Streaming Input Text</span>
+            <div class="preset-section">
+              <span class="section-sublabel">Select a preset avatar or upload your own:</span>
+              <div id="presetGrid" class="preset-grid">
+                <!-- Dynamically populated from /api/avatar/presets -->
+              </div>
+            </div>
+
+            <div id="portraitDropzone" class="dropzone">
+              <input type="file" id="portraitFileInput" accept="image/png, image/jpeg, image/jpg" hidden>
+              <div id="dropzoneContent" class="dropzone-content">
+                <div class="dropzone-icon">📷</div>
+                <p style="margin: 0;"><strong>Click to upload</strong> or drag & drop a photo</p>
+                <span class="helper-text">Front-facing portrait, PNG or JPG</span>
+              </div>
+              <div id="selectedPreview" class="selected-preview" style="display: none;">
+                <img id="previewImg" src="" alt="Selected Portrait">
+                <div class="preview-info">
+                  <span id="previewName" class="preview-filename">portrait.png</span>
+                  <span class="helper-text">Ready for animation</span>
+                </div>
+                <button type="button" id="changePhotoBtn" class="btn-sm">Change</button>
+              </div>
+            </div>
+          </div>
+
+          <!-- Card 2: Voice & Speech Source -->
+          <div class="studio-card">
+            <div class="card-header">
+              <span class="step-badge">2</span>
+              <h3>Voice & Speech Source</h3>
+            </div>
+
+            <!-- Voice Mode Selector: Custom Audio vs TTS -->
+            <div class="voice-mode-switcher">
+              <button type="button" class="voice-mode-btn active" id="modeCustomVoiceBtn">
+                🎙️ Upload My Voice File
+              </button>
+              <button type="button" class="voice-mode-btn" id="modeTtsBtn">
+                ✍️ Generate with VibeVoice TTS
+              </button>
+            </div>
+
+            <!-- Pane A: Custom Voice File Upload -->
+            <div id="customVoicePane" class="voice-pane">
+              <div id="audioDropzone" class="dropzone audio-dropzone">
+                <input type="file" id="audioFileInput" accept="audio/wav, audio/mp3, audio/mpeg, audio/m4a, audio/ogg, audio/flac, .wav, .mp3, .m4a, .ogg, .flac" hidden>
+                <div id="audioDropzoneContent" class="dropzone-content">
+                  <div class="dropzone-icon">🎙️</div>
+                  <p style="margin: 0;"><strong>Click to upload</strong> or drag & drop your voice recording</p>
+                  <span class="helper-text">Supports WAV, MP3, M4A, OGG, FLAC (any duration)</span>
+                </div>
+                <div id="audioSelectedPreview" class="selected-preview audio-preview-box" style="display: none;">
+                  <div class="audio-file-badge">🎵</div>
+                  <div class="preview-info">
+                    <span id="audioPreviewName" class="preview-filename">my_voice.wav</span>
+                    <audio id="audioPlayerPreview" controls style="width: 100%; height: 32px; margin-top: 6px;"></audio>
+                  </div>
+                  <button type="button" id="changeAudioBtn" class="btn-sm">Change</button>
+                </div>
+              </div>
+              <span class="helper-text">SadTalker will directly synchronize the portrait's lip movement and facial expressions to your voice file!</span>
+            </div>
+
+            <!-- Pane B: Text-to-Speech Generation -->
+            <div id="ttsVoicePane" class="voice-pane" style="display: none;">
+              <div class="field">
+                <div class="field-header">
+                  <span class="field-label">Avatar Script</span>
+                  <span id="charCounter" class="char-count">0 chars</span>
+                </div>
+                <textarea id="avatarText" class="text-input studio-textarea" rows="3" placeholder="Type what your avatar should say...">Hello! Welcome to our presentation. I am an AI-driven presenter combining Microsoft's VibeVoice text-to-speech with SadTalker facial animation.</textarea>
+
+                <div class="prompt-chips">
+                  <span class="chips-label">Quick Prompts:</span>
+                  <button type="button" class="chip-btn" data-prompt="Hello everyone! Welcome to our demonstration of real-time AI talking head avatars.">👋 Welcome</button>
+                  <button type="button" class="chip-btn" data-prompt="Today we are excited to unveil our latest features, combining high-fidelity speech synthesis with neural facial motion.">🚀 Product Pitch</button>
+                  <button type="button" class="chip-btn" data-prompt="Thank you so much for watching. Feel free to download the code and run it in Docker!">⭐ Outro</button>
+                </div>
+              </div>
+
+                <div class="field">
+                  <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 4px;">
+                    <span class="field-label" style="margin: 0;">Speaker Voice Preset</span>
+                    <button type="button" id="uploadVoiceBtn" class="btn-sm" style="display: inline-flex; align-items: center; gap: 4px;">
+                      📁 Upload Voice (.wav / .mp3)
+                    </button>
+                    <input type="file" id="voiceFileInput" accept=".wav,.mp3,.m4a,.ogg,.flac,.pt" hidden>
+                  </div>
+                  <select id="avatarVoiceSelect" class="select-control" style="width: 100%;">
+                    <option value="stallone1">stallone1 (Sylvester Stallone)</option>
+                    <option value="trump">trump (Donald Trump)</option>
+                    <option value="goku">goku (Goku)</option>
+                    <option value="picard1">picard1 (Captain Picard)</option>
+                    <option value="roshi">roshi (Master Roshi)</option>
+                    <option value="sarevok">sarevok (Sarevok)</option>
+                    <option value="tyrael1">tyrael1 (Archangel Tyrael)</option>
+                    <option value="en-ArnoldCHW_man">en-ArnoldCHW_man</option>
+                    <option value="en-Carter_man" selected>en-Carter_man</option>
+                  </select>
+                </div>
+
+              <!-- Voice Guide Box -->
+              <div class="voice-guide-box">
+                <div class="voice-guide-icon">🎙️</div>
+                <div class="voice-guide-text">
+                  <strong>Custom Voice Cloning Supported:</strong>
+                  <span>Select from presets (<code>stallone1</code>, <code>trump</code>, <code>goku</code>, etc.) or click <strong>"📁 Upload Voice (.wav / .mp3)"</strong> to clone any voice recording!</span>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Card 3: Quality Options & Generate -->
+          <div class="studio-card">
+            <div class="card-header">
+              <span class="step-badge">3</span>
+              <h3>Animation Quality & Details</h3>
+            </div>
+
+            <div class="options-grid">
+              <label class="toggle-control">
+                <input type="checkbox" id="enhancerToggle">
+                <span class="toggle-slider"></span>
+                <span class="toggle-label">
+                  <strong>GFPGAN Face Enhancer (HD)</strong>
+                  <small>Enhances facial detail (~4 mins). <em>Leave OFF for Fast Mode (~15s)</em></small>
+                </span>
+              </label>
+
+              <label class="toggle-control">
+                <input type="checkbox" id="stillModeToggle">
+                <span class="toggle-slider"></span>
+                <span class="toggle-label">
+                  <strong>Still Mode</strong>
+                  <small>Stabilizes head motion, optimal for presentations</small>
+                </span>
+              </label>
+
+
+              <div class="slider-field">
+                <div class="slider-header">
+                  <span class="field-label">Expression Scale</span>
+                  <span id="exprScaleValue" class="slider-val">1.0</span>
+                </div>
+                <input type="range" id="exprScaleSlider" min="0.6" max="1.5" step="0.1" value="1.0">
+              </div>
+            </div>
+
+            <button type="button" id="startAvatarBtn" class="generate-btn">
+              <span>🚀 Generate Talking Avatar</span>
+            </button>
+          </div>
         </div>
-        <div id="streamingPreview" aria-live="polite">This area will display the streaming input text in real time.</div>
-      </div>
-    </section>
-          <span class="helper-text">This demo requires the full text to be provided upfront. The model then receives the text via streaming input during synthesis.<br>
-            For non-punctuation special characters, applying text normalization before processing often yields better results.</span>
-          
-    <section class="panel control-panel">
-      <div class="inline-field">
-        <span class="field-label">Speaker</span>
-        <select id="voiceSelect" class="select-control">
-          <option value="">Loading...</option>
-        </select>
-      </div>
 
-      <div class="control-row">
-        <label class="range-control">
-          <span>CFG</span>
-          <input id="cfgScale" type="range" min="1.3" max="3" step="0.05" value="1.5" />
-          <span class="range-value" id="cfgValue">1.5</span>
+        <!-- Right Column: Generation Status & Video Player -->
+        <div class="studio-col">
+          <!-- Idle State Card -->
+          <div id="idleCard" class="result-card idle-state">
+            <div class="idle-illustration">🎬</div>
+            <h3>Ready to Create Your Avatar</h3>
+            <p>Pick a portrait on the left, type your script, and click <strong>Generate Talking Avatar</strong>.</p>
+            <div class="feature-bullets">
+              <div class="feature-item">⚡ <strong>0.5B Real-time TTS</strong> via Microsoft VibeVoice</div>
+              <div class="feature-item">🎭 <strong>Realistic Head Motion</strong> via SadTalker</div>
+              <div class="feature-item">✨ <strong>HD Face Restoration</strong> via GFPGAN</div>
+              <div class="feature-item">🐳 <strong>100% Docker Containerized</strong></div>
+            </div>
+          </div>
+
+          <!-- Processing State Card -->
+          <div id="processingCard" class="result-card processing-state" style="display: none;">
+            <div class="spinner-ring"></div>
+            <h3 id="progressStageTitle">Synthesizing Speech with VibeVoice...</h3>
+            <p id="progressSubtitle" class="progress-sub">Step 1 of 2: Creating 24kHz audio from text...</p>
+
+            <div class="progress-bar-wrap">
+              <div id="progressBarFill" class="progress-bar-fill" style="width: 25%;"></div>
+            </div>
+            <span id="progressPercent" class="progress-percent">25%</span>
+
+            <div class="pipeline-stepper">
+              <div id="step1" class="step-item active">
+                <span class="step-icon">🎙️</span>
+                <span>VibeVoice</span>
+              </div>
+              <div class="step-connector"></div>
+              <div id="step2" class="step-item">
+                <span class="step-icon">🎭</span>
+                <span>SadTalker</span>
+              </div>
+              <div class="step-connector"></div>
+              <div id="step3" class="step-item">
+                <span class="step-icon">✨</span>
+                <span>GFPGAN</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Completed State Card -->
+          <div id="completedCard" class="result-card completed-state" style="display: none;">
+            <div class="result-header">
+              <h3 style="margin: 0; font-size: 18px;">✨ Talking Avatar Ready!</h3>
+              <span class="badge-success">Complete</span>
+            </div>
+
+            <div class="video-container">
+              <video id="resultVideo" controls autoplay loop playsinline></video>
+            </div>
+
+            <div class="audio-preview-row">
+              <span class="audio-label">Synthesized Audio:</span>
+              <audio id="resultAudio" controls></audio>
+            </div>
+
+            <div class="result-actions">
+              <a id="downloadVideoBtn" class="btn-download" download="talking_avatar.mp4">
+                ⬇️ Download Video (.mp4)
+              </a>
+              <a id="downloadAudioBtn" class="btn-download-secondary" download="avatar_speech.wav">
+                🎵 Audio (.wav)
+              </a>
+              <button type="button" id="createAnotherBtn" class="btn-text">
+                🔄 Create Another
+              </button>
+            </div>
+          </div>
+
+          <!-- Error State Card -->
+          <div id="errorCard" class="result-card error-state" style="display: none;">
+            <div class="error-icon">⚠️</div>
+            <h3>Generation Error</h3>
+            <p id="errorMessage" class="error-text">An error occurred.</p>
+            <button type="button" id="retryBtn" class="btn-retry">Try Again</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Tab 2: Real-time Streaming TTS (Original) -->
+    <div id="streamingTtsTab" class="tab-pane">
+      <section class="panel">
+        <label class="field">
+          <span class="field-label">Text</span>
+          <textarea
+            id="prompt"
+            class="text-input"
+            rows="4"
+          >Enter your text here and click "Start" to instantly hear the VibeVoice-Realtime TTS output audio.</textarea>
         </label>
-        <label class="range-control">
-          <span>Inference Steps</span>
-          <input id="inferenceSteps" type="range" min="5" max="20" step="1" value="5" />
-          <span class="range-value" id="stepsValue">5</span>
-        </label>
-        <button id="resetControls" type="button" class="secondary-btn">Reset Controls</button>
-      </div>
 
-      <div class="control-row">
-        <button id="playback">Start</button>
-        <button id="saveAudio" type="button" class="secondary-btn" disabled>Save</button>
-      </div>
-    </section>
+        <div id="streamingPreviewContainer">
+          <div id="streamingPreviewHeader">
+            <span>Streaming Input Text</span>
+          </div>
+          <div id="streamingPreview" aria-live="polite">This area will display the streaming input text in real time.</div>
+        </div>
+      </section>
+      <span class="helper-text">This demo requires the full text to be provided upfront. The model then receives the text via streaming input during synthesis.<br>
+        For non-punctuation special characters, applying text normalization before processing often yields better results.</span>
 
-    <section class="panel">
-      <div class="metrics">
-        <span>Model Generated Audio<strong id="modelGenerated">0.00</strong><span class="metric-unit">s</span></span>
-        <span>Audio Played<strong id="playbackElapsed">0.00</strong><span class="metric-unit">s</span></span>
-      </div>
-    </section>
+      <section class="panel control-panel">
+        <div class="inline-field">
+          <div style="display: flex; justify-content: space-between; align-items: center; width: 100%; margin-bottom: 4px;">
+            <span class="field-label" style="margin: 0;">Speaker Voice</span>
+            <button type="button" id="uploadVoiceTtsBtn" class="secondary-btn" style="padding: 4px 10px; font-size: 0.8rem; display: inline-flex; align-items: center; gap: 4px;">
+              📁 Upload Voice (.wav / .mp3)
+            </button>
+            <input type="file" id="voiceFileTtsInput" accept=".wav,.mp3,.m4a,.ogg,.flac,.pt" hidden>
+          </div>
+          <select id="voiceSelect" class="select-control" style="width: 100%;">
+            <option value="">Loading...</option>
+          </select>
+        </div>
 
-    <section class="panel">
-      <span class="field-label">Runtime Logs</span>
-      <pre id="logOutput"></pre>
-    </section>
+        <div class="control-row">
+          <label class="range-control">
+            <span>CFG</span>
+            <input id="cfgScale" type="range" min="1.3" max="3" step="0.05" value="1.5" />
+            <span class="range-value" id="cfgValue">1.5</span>
+          </label>
+          <label class="range-control">
+            <span>Inference Steps</span>
+            <input id="inferenceSteps" type="range" min="5" max="20" step="1" value="5" />
+            <span class="range-value" id="stepsValue">5</span>
+          </label>
+          <button id="resetControls" type="button" class="secondary-btn">Reset Controls</button>
+        </div>
+
+        <div class="control-row">
+          <button id="playback">Start</button>
+          <button id="saveAudio" type="button" class="secondary-btn" disabled>Save</button>
+        </div>
+      </section>
+
+      <section class="panel">
+        <div class="metrics">
+          <span>Model Generated Audio<strong id="modelGenerated">0.00</strong><span class="metric-unit">s</span></span>
+          <span>Audio Played<strong id="playbackElapsed">0.00</strong><span class="metric-unit">s</span></span>
+        </div>
+      </section>
+
+      <section class="panel">
+        <span class="field-label">Runtime Logs</span>
+        <pre id="logOutput"></pre>
+      </section>
+    </div>
   </div>
 
 
@@ -1010,6 +1947,546 @@
     resetState();
     clearPreviewTimer();
     revokeDownloadUrl();
+  });
+})();
+
+// =========================================================================
+// Talking Avatar Studio Controller
+// =========================================================================
+(() => {
+  // Tab Switching
+  const tabBtns = document.querySelectorAll('.tab-btn');
+  const tabPanes = document.querySelectorAll('.tab-pane');
+
+  tabBtns.forEach(btn => {
+    btn.addEventListener('click', () => {
+      tabBtns.forEach(b => b.classList.remove('active'));
+      tabPanes.forEach(p => p.classList.remove('active'));
+
+      btn.classList.add('active');
+      const targetId = btn.getAttribute('data-tab');
+      const targetPane = document.getElementById(targetId);
+      if (targetPane) targetPane.classList.add('active');
+    });
+  });
+
+  // Avatar Studio Elements
+  const presetGrid = document.getElementById('presetGrid');
+  const dropzone = document.getElementById('portraitDropzone');
+  const fileInput = document.getElementById('portraitFileInput');
+  const dropzoneContent = document.getElementById('dropzoneContent');
+  const selectedPreview = document.getElementById('selectedPreview');
+  const previewImg = document.getElementById('previewImg');
+  const previewName = document.getElementById('previewName');
+  const changePhotoBtn = document.getElementById('changePhotoBtn');
+
+  // Voice Source Elements
+  const modeCustomVoiceBtn = document.getElementById('modeCustomVoiceBtn');
+  const modeTtsBtn = document.getElementById('modeTtsBtn');
+  const customVoicePane = document.getElementById('customVoicePane');
+  const ttsVoicePane = document.getElementById('ttsVoicePane');
+
+  const audioDropzone = document.getElementById('audioDropzone');
+  const audioFileInput = document.getElementById('audioFileInput');
+  const audioDropzoneContent = document.getElementById('audioDropzoneContent');
+  const audioSelectedPreview = document.getElementById('audioSelectedPreview');
+  const audioPreviewName = document.getElementById('audioPreviewName');
+  const audioPlayerPreview = document.getElementById('audioPlayerPreview');
+  const changeAudioBtn = document.getElementById('changeAudioBtn');
+
+  const avatarText = document.getElementById('avatarText');
+  const charCounter = document.getElementById('charCounter');
+  const promptChips = document.querySelectorAll('.chip-btn');
+  const avatarVoiceSelect = document.getElementById('avatarVoiceSelect');
+
+  const enhancerToggle = document.getElementById('enhancerToggle');
+  const stillModeToggle = document.getElementById('stillModeToggle');
+  const exprScaleSlider = document.getElementById('exprScaleSlider');
+  const exprScaleValue = document.getElementById('exprScaleValue');
+  const startAvatarBtn = document.getElementById('startAvatarBtn');
+
+  const idleCard = document.getElementById('idleCard');
+  const processingCard = document.getElementById('processingCard');
+  const completedCard = document.getElementById('completedCard');
+  const errorCard = document.getElementById('errorCard');
+
+  const progressStageTitle = document.getElementById('progressStageTitle');
+  const progressSubtitle = document.getElementById('progressSubtitle');
+  const progressBarFill = document.getElementById('progressBarFill');
+  const progressPercent = document.getElementById('progressPercent');
+  const step1 = document.getElementById('step1');
+  const step2 = document.getElementById('step2');
+  const step3 = document.getElementById('step3');
+
+  const resultVideo = document.getElementById('resultVideo');
+  const resultAudio = document.getElementById('resultAudio');
+  const downloadVideoBtn = document.getElementById('downloadVideoBtn');
+  const downloadAudioBtn = document.getElementById('downloadAudioBtn');
+  const createAnotherBtn = document.getElementById('createAnotherBtn');
+  const retryBtn = document.getElementById('retryBtn');
+  const errorMessage = document.getElementById('errorMessage');
+
+  let activeVoiceMode = 'custom'; // 'custom' (user audio file) or 'tts' (VibeVoice)
+  let uploadedAudioFile = null;
+  let selectedPreset = null;
+  let uploadedFile = null;
+  let activeTaskId = null;
+  let pollInterval = null;
+
+  // Voice Mode Switching
+  modeCustomVoiceBtn.addEventListener('click', () => {
+    activeVoiceMode = 'custom';
+    modeCustomVoiceBtn.classList.add('active');
+    modeTtsBtn.classList.remove('active');
+    customVoicePane.style.display = 'flex';
+    ttsVoicePane.style.display = 'none';
+  });
+
+  modeTtsBtn.addEventListener('click', () => {
+    activeVoiceMode = 'tts';
+    modeTtsBtn.classList.add('active');
+    modeCustomVoiceBtn.classList.remove('active');
+    ttsVoicePane.style.display = 'flex';
+    customVoicePane.style.display = 'none';
+  });
+
+  // Audio Dropzone & File Input Handlers
+  audioDropzone.addEventListener('click', (e) => {
+    if (e.target !== changeAudioBtn) {
+      audioFileInput.click();
+    }
+  });
+
+  changeAudioBtn.addEventListener('click', (e) => {
+    e.stopPropagation();
+    audioFileInput.click();
+  });
+
+  audioFileInput.addEventListener('change', () => {
+    if (audioFileInput.files && audioFileInput.files[0]) {
+      handleUserAudioFile(audioFileInput.files[0]);
+    }
+  });
+
+  ['dragenter', 'dragover'].forEach(evt => {
+    audioDropzone.addEventListener(evt, (e) => {
+      e.preventDefault();
+      audioDropzone.classList.add('dragover');
+    });
+  });
+
+  ['dragleave', 'drop'].forEach(evt => {
+    audioDropzone.addEventListener(evt, (e) => {
+      e.preventDefault();
+      audioDropzone.classList.remove('dragover');
+    });
+  });
+
+  audioDropzone.addEventListener('drop', (e) => {
+    if (e.dataTransfer && e.dataTransfer.files && e.dataTransfer.files[0]) {
+      handleUserAudioFile(e.dataTransfer.files[0]);
+    }
+  });
+
+  const handleUserAudioFile = (file) => {
+    uploadedAudioFile = file;
+    audioPreviewName.textContent = file.name;
+    const blobUrl = URL.createObjectURL(file);
+    audioPlayerPreview.src = blobUrl;
+    audioDropzoneContent.style.display = 'none';
+    audioSelectedPreview.style.display = 'flex';
+  };
+
+  // Character Counter
+  const updateCharCount = () => {
+    const len = avatarText.value.length;
+    charCounter.textContent = `${len} chars`;
+  };
+  avatarText.addEventListener('input', updateCharCount);
+  updateCharCount();
+
+  // Quick Prompt Chips
+  promptChips.forEach(chip => {
+    chip.addEventListener('click', () => {
+      avatarText.value = chip.getAttribute('data-prompt');
+      updateCharCount();
+      avatarText.focus();
+    });
+  });
+
+  // Slider Display
+  exprScaleSlider.addEventListener('input', () => {
+    exprScaleValue.textContent = Number(exprScaleSlider.value).toFixed(1);
+  });
+
+  // Load Voices for Avatar Studio
+  const loadAvatarVoices = async () => {
+    try {
+      const res = await fetch('/config');
+      const data = await res.json();
+      if (data.voices && data.voices.length > 0) {
+        const currentVal = avatarVoiceSelect.value;
+        avatarVoiceSelect.innerHTML = '';
+        data.voices.forEach(v => {
+          const opt = document.createElement('option');
+          opt.value = v;
+          opt.textContent = v;
+          avatarVoiceSelect.appendChild(opt);
+        });
+        if (currentVal && data.voices.includes(currentVal)) {
+          avatarVoiceSelect.value = currentVal;
+        } else if (data.default_voice && data.voices.includes(data.default_voice)) {
+          avatarVoiceSelect.value = data.default_voice;
+        }
+      }
+    } catch (err) {
+      console.warn('Failed to load avatar voices:', err);
+    }
+  };
+  loadAvatarVoices();
+
+  // Voice File Upload Handler (Audio .wav / .mp3 / .pt)
+  const setupVoiceUpload = (btnId, inputId) => {
+    const btn = document.getElementById(btnId);
+    const input = document.getElementById(inputId);
+    if (!btn || !input) return;
+
+    btn.addEventListener('click', () => input.click());
+
+    input.addEventListener('change', async () => {
+      if (!input.files || !input.files[0]) return;
+      const file = input.files[0];
+      const validExts = ['.wav', '.mp3', '.m4a', '.flac', '.ogg', '.pt'];
+      const fileExt = '.' + file.name.split('.').pop().toLowerCase();
+      if (!validExts.includes(fileExt)) {
+        alert('Please upload an audio file (' + validExts.join(', ') + ')');
+        return;
+      }
+
+      btn.disabled = true;
+      const origText = btn.textContent;
+      btn.textContent = 'Uploading...';
+
+      const formData = new FormData();
+      formData.append('voice_file', file);
+
+      try {
+        const resp = await fetch('/api/voices/upload', {
+          method: 'POST',
+          body: formData,
+        });
+        const data = await resp.json();
+        if (!resp.ok) {
+          throw new Error(data.detail || 'Voice upload failed');
+        }
+
+        // Update avatarVoiceSelect
+        if (avatarVoiceSelect) {
+          avatarVoiceSelect.innerHTML = '';
+          (data.voices || []).forEach(v => {
+            const opt = document.createElement('option');
+            opt.value = v;
+            opt.textContent = v;
+            avatarVoiceSelect.appendChild(opt);
+          });
+          avatarVoiceSelect.value = data.voice_name;
+        }
+
+        // Update TTS voiceSelect
+        const voiceSelect = document.getElementById('voiceSelect');
+        if (voiceSelect) {
+          voiceSelect.innerHTML = '';
+          (data.voices || []).forEach(v => {
+            const opt = document.createElement('option');
+            opt.value = v;
+            opt.textContent = v;
+            voiceSelect.appendChild(opt);
+          });
+          voiceSelect.value = data.voice_name;
+        }
+
+        // Auto-switch to TTS mode if in Avatar Studio
+        if (btnId === 'uploadVoiceBtn' && modeTtsBtn) {
+          modeTtsBtn.click();
+        }
+
+        alert(`Voice "${data.voice_name}" uploaded and selected!`);
+      } catch (err) {
+        alert('Error uploading voice file: ' + err.message);
+      } finally {
+        btn.disabled = false;
+        btn.textContent = origText;
+        input.value = '';
+      }
+    });
+  };
+
+  setupVoiceUpload('uploadVoiceBtn', 'voiceFileInput');
+  setupVoiceUpload('uploadVoiceTtsBtn', 'voiceFileTtsInput');
+
+  // Load Preset Avatars
+  const loadPresets = async () => {
+    try {
+      const res = await fetch('/api/avatar/presets');
+      const data = await res.json();
+      presetGrid.innerHTML = '';
+
+      if (data.presets && data.presets.length > 0) {
+        data.presets.forEach((preset, idx) => {
+          const card = document.createElement('div');
+          card.className = `preset-card ${idx === 0 ? 'selected' : ''}`;
+          card.innerHTML = `
+            <img src="${preset.url}" alt="${preset.label}">
+            <span>${preset.label}</span>
+          `;
+          card.addEventListener('click', () => {
+            selectPreset(preset, card);
+          });
+          presetGrid.appendChild(card);
+        });
+        // Select first preset by default
+        selectPreset(data.presets[0], presetGrid.firstChild);
+      }
+    } catch (err) {
+      console.warn('Failed to load avatar presets:', err);
+    }
+  };
+  loadPresets();
+
+  const selectPreset = (preset, cardEl) => {
+    document.querySelectorAll('.preset-card').forEach(c => c.classList.remove('selected'));
+    if (cardEl) cardEl.classList.add('selected');
+
+    selectedPreset = preset.name;
+    uploadedFile = null;
+
+    previewImg.src = preset.url;
+    previewName.textContent = preset.label;
+    dropzoneContent.style.display = 'none';
+    selectedPreview.style.display = 'flex';
+  };
+
+  // Dropzone & File Input Handlers
+  dropzone.addEventListener('click', (e) => {
+    if (e.target !== changePhotoBtn) {
+      fileInput.click();
+    }
+  });
+
+  changePhotoBtn.addEventListener('click', (e) => {
+    e.stopPropagation();
+    fileInput.click();
+  });
+
+  fileInput.addEventListener('change', () => {
+    if (fileInput.files && fileInput.files[0]) {
+      handleUserFile(fileInput.files[0]);
+    }
+  });
+
+  ['dragenter', 'dragover'].forEach(evt => {
+    dropzone.addEventListener(evt, (e) => {
+      e.preventDefault();
+      dropzone.classList.add('dragover');
+    });
+  });
+
+  ['dragleave', 'drop'].forEach(evt => {
+    dropzone.addEventListener(evt, (e) => {
+      e.preventDefault();
+      dropzone.classList.remove('dragover');
+    });
+  });
+
+  dropzone.addEventListener('drop', (e) => {
+    if (e.dataTransfer && e.dataTransfer.files && e.dataTransfer.files[0]) {
+      handleUserFile(e.dataTransfer.files[0]);
+    }
+  });
+
+  const handleUserFile = (file) => {
+    if (!file.type.startsWith('image/')) {
+      alert('Please upload an image file (PNG or JPG).');
+      return;
+    }
+    uploadedFile = file;
+    selectedPreset = null;
+    document.querySelectorAll('.preset-card').forEach(c => c.classList.remove('selected'));
+
+    const reader = new FileReader();
+    reader.onload = (e) => {
+      previewImg.src = e.target.result;
+      previewName.textContent = file.name;
+      dropzoneContent.style.display = 'none';
+      selectedPreview.style.display = 'flex';
+    };
+    reader.readAsDataURL(file);
+  };
+
+  // Switch View Helper
+  const showCard = (card) => {
+    [idleCard, processingCard, completedCard, errorCard].forEach(c => {
+      c.style.display = (c === card) ? 'flex' : 'none';
+    });
+  };
+
+  // Stepper Visual Updates
+  const updateProgress = (percent, title, subtitle, activeStepNum) => {
+    progressBarFill.style.width = `${percent}%`;
+    progressPercent.textContent = `${percent}%`;
+    progressStageTitle.textContent = title;
+    progressSubtitle.textContent = subtitle;
+
+    const steps = [step1, step2, step3];
+    steps.forEach((step, idx) => {
+      step.classList.remove('active', 'done');
+      if (idx + 1 < activeStepNum) {
+        step.classList.add('done');
+      } else if (idx + 1 === activeStepNum) {
+        step.classList.add('active');
+      }
+    });
+  };
+
+  // Generate Talking Avatar
+  startAvatarBtn.addEventListener('click', async () => {
+    if (activeVoiceMode === 'custom') {
+      if (!uploadedAudioFile) {
+        alert('Please select or upload your voice audio file.');
+        return;
+      }
+    } else {
+      const text = avatarText.value.trim();
+      if (!text) {
+        alert('Please enter some text for your avatar to say.');
+        avatarText.focus();
+        return;
+      }
+    }
+
+    if (!selectedPreset && !uploadedFile) {
+      alert('Please select or upload a portrait image.');
+      return;
+    }
+
+    startAvatarBtn.disabled = true;
+    showCard(processingCard);
+
+    if (activeVoiceMode === 'custom') {
+      updateProgress(20, 'Loading Your Custom Voice...', 'Preparing your audio recording for animation...', 1);
+    } else {
+      updateProgress(15, 'Synthesizing Speech with VibeVoice...', 'Stage 1 of 2: Generating 24kHz audio...', 1);
+    }
+
+    const formData = new FormData();
+    if (activeVoiceMode === 'custom') {
+      formData.append('audio_file', uploadedAudioFile);
+    } else {
+      formData.append('text', avatarText.value.trim());
+      formData.append('speaker', avatarVoiceSelect.value || 'en-Carter_man');
+    }
+
+    formData.append('enhancer', enhancerToggle.checked ? 'gfpgan' : 'none');
+    formData.append('still', stillModeToggle.checked ? 'true' : 'false');
+    formData.append('expression_scale', exprScaleSlider.value);
+
+    if (uploadedFile) {
+      formData.append('portrait_file', uploadedFile);
+    } else if (selectedPreset) {
+      formData.append('preset_name', selectedPreset);
+    }
+
+    try {
+      const resp = await fetch('/api/avatar/generate', {
+        method: 'POST',
+        body: formData,
+      });
+
+      if (!resp.ok) {
+        const errData = await resp.json().catch(() => ({ detail: 'Network error' }));
+        throw new Error(errData.detail || 'Generation request failed');
+      }
+
+      const data = await resp.json();
+      activeTaskId = data.task_id;
+
+      if (activeVoiceMode === 'custom') {
+        updateProgress(35, 'Custom Voice Loaded! Starting SadTalker...', 'Stage 2 of 2: Synchronizing lips & facial expressions on GPU...', 2);
+      } else {
+        updateProgress(35, 'Speech Synthesized! Waiting for SadTalker...', 'Stage 2 of 2: Animating portrait on GPU...', 2);
+      }
+      startPolling(activeTaskId, data.audio_url);
+    } catch (err) {
+      console.error('Generation failed:', err);
+      errorMessage.textContent = err.message;
+      showCard(errorCard);
+      startAvatarBtn.disabled = false;
+    }
+  });
+
+  // Status Polling
+  const startPolling = (taskId, audioUrl) => {
+    if (pollInterval) clearInterval(pollInterval);
+
+    let pollCount = 0;
+    pollInterval = setInterval(async () => {
+      pollCount++;
+      try {
+        const res = await fetch(`/api/avatar/status/${taskId}`);
+        if (!res.ok) return;
+
+        const task = await res.json();
+
+        if (task.status === 'processing') {
+          const estimatedProgress = Math.min(85, 40 + pollCount * 3);
+          updateProgress(
+            estimatedProgress,
+            'Animating Portrait with SadTalker...',
+            'Neural facial motion & lip synchronization in progress...',
+            2
+          );
+        } else if (task.status === 'completed') {
+          clearInterval(pollInterval);
+          updateProgress(100, 'Finishing up...', 'Rendering complete!', 3);
+
+          setTimeout(() => {
+            let videoUrl = task.video_url || `/outputs/avatar_${taskId}.mp4`;
+            if (!videoUrl.startsWith('/')) videoUrl = '/' + videoUrl;
+
+            let audioUrlFinal = task.audio_url || audioUrl;
+            if (!audioUrlFinal.startsWith('/')) audioUrlFinal = '/' + audioUrlFinal;
+
+            resultVideo.src = videoUrl;
+            try {
+              resultVideo.load();
+              resultVideo.play().catch(() => {});
+            } catch (e) {}
+
+            resultAudio.src = audioUrlFinal;
+            downloadVideoBtn.href = videoUrl;
+            downloadAudioBtn.href = audioUrlFinal;
+
+            showCard(completedCard);
+            startAvatarBtn.disabled = false;
+          }, 600);
+        } else if (task.status === 'failed') {
+          clearInterval(pollInterval);
+          errorMessage.textContent = task.error || 'SadTalker processing failed.';
+          showCard(errorCard);
+          startAvatarBtn.disabled = false;
+        }
+      } catch (err) {
+        console.warn('Status poll warning:', err);
+      }
+    }, 1500);
+  };
+
+  createAnotherBtn.addEventListener('click', () => {
+    showCard(idleCard);
+  });
+
+  retryBtn.addEventListener('click', () => {
+    showCard(idleCard);
   });
 })();
 </script>
